@@ -6,12 +6,37 @@ check_session_id();
 //DB接続の設定
 $pdo = connect_to_db();
 
-//ログインユーザーのアイコンの表示
-if ($_SESSION["icon"] != NULL) {
-    $icon = $_SESSION["icon"];
+$user_id = $_SESSION["id"];
+// var_dump($_SESSION['id']);
+// exit();
+
+//sql作成＆準備&実行
+$sql = 'SELECT * FROM wife_table WHERE id = :user_id';
+
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
+$status = $stmt->execute();
+
+// データ登録処理後
+if ($status == false) {
+    // SQL実行に失敗した場合はここでエラーを出力し，以降の処理を中止する
+    $error = $stmt->errorInfo();
+    echo json_encode(["error_msg" => "{$error[2]}"]);
+    exit();
 } else {
-    $icon = "image/no_image.png";
+    $record = $stmt->fetch(PDO::FETCH_ASSOC);
+    // var_dump($record);
+    // exit();
 }
+
+//iconの定義
+if ($record["icon"] != NULL) {
+    $icon = $record["icon"];
+} else {
+    $icon = "image/no_wife.png";
+}
+// var_dump($_SESSION["icon"]);
+// exit();
 
 //ログインユーザーのid
 $user_id = $_SESSION["id"];
