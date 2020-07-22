@@ -1,6 +1,10 @@
 *{
     margin: 0;
   }
+
+  html{
+    background-color: blueviolet;
+}
   
   header{
     background-color: blueviolet;
@@ -9,11 +13,11 @@
   
   #header{
   display: flex;
-  justify-content: center;
+  
   }
   
-  #setting{
-  position: absolute;
+  #profile{
+  /* position: absolute; */
   left: 0; 
   margin-left: 10px;
   }
@@ -25,13 +29,14 @@
   }
   
   #logo{
-    display: flex;
-    justify-content: center; /* 子要素を中央揃え */
-    position: relative;
+    /* display: flex; */
+    /* justify-content: center; 子要素を中央揃え */
+    /* position: relative; */
+    margin-left: 101px;
   }
   
   .globalMenuSp{
-    position: absolute;
+    /* position: absolute; */
     right: 0; 
     margin-right: 10px;
   }
@@ -148,3 +153,73 @@ header img{
     width: 53px;
     margin-top: 17px;
   }
+
+  /* リストの調整 */
+  .playlist{
+    display: flex;
+    background-color: #ffffff;
+  }
+
+  .playlists p,.friends p{
+    padding-left: 8px;
+    font-size: 13px;
+    background-color: #f5f5f5;
+}
+
+.playlists{
+    /* margin-top: 17px; */
+}
+
+
+.playlist_image{
+    width: 65px;
+    height: 65px;
+}
+
+.playlist h2{
+    margin-top: 12px;
+    margin-left: 30px;
+    color: blueviolet;
+}
+
+  /* 検索窓のデザイン */
+  /*フォーム全体*/
+#form1{
+    /* position:relative; */
+    /*フォームの相対位置*/	
+    max-width:auto;/*フォームのサイズ*/
+    /* margin-bottom:15px; */
+    /*フォームの下に余白*/
+    display: flex;	 	
+    }
+    /*検索ボックス*/
+    #sbox{
+    /* position:absolute; */
+    /*フォームの絶対位置*/	
+    left:0;
+    top:0; 	
+    outline:0;/*クリック時の青い枠線消す*/	
+    height:50px;/*検索ボックスの高さ*/	
+    width: 100%; 
+    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
+    background:#eee;/*検索ボックスの背景カラー*/		
+    }
+    /*検索ボタン*/
+    #sbtn{
+    width:70px;/*検索ボタンの横幅*/ 
+    height:55px;/*検索ボタンの縦幅*/ 
+    /* position:absolute; */
+    /*検索ボタンの絶対位置*/  
+    right:0;/*検索ボタンの位置調整*/  
+    top:3px;
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+    background:#FF63B1;/*検索ボタンの背景カラー*/ 
+    border:none;/*検索ボタンの枠線を消す*/ 
+    color:#fff;/*検索ボタンのテキストカラー*/ 
+    font-weight:bold;/*検索ボタンのテキスト太字*/ 
+    font-size:16px;/*検索ボタンのフォントサイズ*/ 
+    }
+    /*検索ボタンマウスオーバー時*/
+    #sbtn:hover{
+    color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+    }

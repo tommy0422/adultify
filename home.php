@@ -90,7 +90,7 @@ if ($status == false) {
 <body>
     <header>
         <div id="header">
-            <div id="setting">
+            <div id="profile">
                 <a href="profile.php"><img id="icon" src="<?= $icon ?>"></a>
             </div>
             <div id="logo">

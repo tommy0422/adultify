@@ -13,11 +13,11 @@
   
   #header{
   display: flex;
-  justify-content: center;
+  
   }
   
-  #setting{
-  position: absolute;
+  #profile{
+  /* position: absolute; */
   left: 0; 
   margin-left: 10px;
   }
@@ -29,13 +29,14 @@
   }
   
   #logo{
-    display: flex;
-    justify-content: center; /* 子要素を中央揃え */
-    position: relative;
+    /* display: flex; */
+    /* justify-content: center; 子要素を中央揃え */
+    /* position: relative; */
+    margin-left: 101px;
   }
   
   .globalMenuSp{
-    position: absolute;
+    /* position: absolute; */
     right: 0; 
     margin-right: 10px;
   }
@@ -148,7 +149,7 @@ nav.globalMenuSp.active {
     transform: rotate(45deg);
 }
 
-  header img{
+header img{
     width: 53px;
     margin-top: 17px;
   }
@@ -166,8 +167,8 @@ nav.globalMenuSp.active {
 }
 
 .playlist_image{
-    width: 90px;
-    height: 90px;
+    width: 65px;
+    height: 65px;
 }
 
 .playlist h2{

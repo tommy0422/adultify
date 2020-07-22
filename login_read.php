@@ -13,6 +13,8 @@ $pdo = connect_to_db();
 // データ受け取り
 $address = $_POST['address'];
 $password = $_POST['pass'];
+// var_dump($password);
+// exit();
 
 $sql = 'SELECT * FROM wife_table WHERE address = :address AND password=:password AND is_deleted=0';
 

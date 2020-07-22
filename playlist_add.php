@@ -1,3 +1,19 @@
+<?php
+session_start();
+include('functions.php');
+check_session_id();
+
+//DB接続の設定
+$pdo = connect_to_db();
+
+//ログインユーザーのアイコンの表示
+if ($_SESSION["icon"] != NULL) {
+    $icon = $_SESSION["icon"];
+} else {
+    $icon = "image/no_image.png";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,6 +27,9 @@
 <body>
     <header>
         <div id="header">
+            <div id="profile">
+                <a href="profile.php"><img id="icon" src="<?= $icon ?>"></a>
+            </div>
             <div id="logo">
                 <img src="image/logomark.png" alt="">
             </div>
