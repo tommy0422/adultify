@@ -12,12 +12,12 @@ header{
   }
   
   #header{
-  display: flex;
+  display: space-between;
   
   }
   
   #profile{
-  /* position: absolute; */
+  position: absolute;
   left: 0; 
   margin-left: 10px;
   }
@@ -32,7 +32,8 @@ header{
     /* display: flex; */
     /* justify-content: center; 子要素を中央揃え */
     /* position: relative; */
-    margin-left: 101px;
+    /* margin-left: 101px; */
+    text-align:center;
   }
   
   .globalMenuSp{

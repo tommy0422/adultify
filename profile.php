@@ -63,7 +63,7 @@ if ($record["icon"] != NULL) {
                  <ul>
                      <li><a href="home.php">ホーム</a></li>
                      <li><a href="search.php">検索</a></li>
-                     <li><a href="login.php">ログアウト</a></li>
+                     <li><a href="logout.php">ログアウト</a></li>
                  </ul>
              </nav>
          </div>

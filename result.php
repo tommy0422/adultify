@@ -111,7 +111,7 @@ if ($status == false) {
             <nav class="globalMenuSp">
                 <ul>
                     <li><a href="home.php">ホーム</a></li>
-                    <li><a href="login.php">ログアウト</a></li>
+                    <li><a href="logout.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>

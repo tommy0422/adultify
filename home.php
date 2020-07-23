@@ -38,14 +38,9 @@ if ($record["icon"] != NULL) {
 // var_dump($_SESSION["icon"]);
 // exit();
 
-//ログインユーザーのid
-$user_id = $_SESSION["id"];
-// var_dump($user_id);
-// exit();
-
 //プレイリストの表示
 //sql作成 & 実行
-$sql = 'SELECT playlist_table.name,image FROM playlist_table LEFT OUTER JOIN wife_table ON playlist_table.belong_wife = :user_id';
+$sql = 'SELECT * FROM playlist_table WHERE belong_wife = :user_id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
@@ -75,11 +70,13 @@ if ($status == false) {
 
 //友達の表示
 //sql作成 & 実行
-$sql = 'SELECT man_table.name,man_table.icon,age FROM man_table LEFT OUTER JOIN wife_table ON man_table.belong_wife = :user_id WHERE man_table.belong_playlist = NULL';
+$sql = 'SELECT  * FROM man_table WHERE belong_wife = :user_id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
 $status = $stmt->execute();
+// var_dump($status);
+// exit();
 
 // データ登録処理後
 if ($status == false) {
@@ -89,16 +86,23 @@ if ($status == false) {
     exit();
 } else {
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($list);
+    // exit();
     $friend = "";
     // <tr><td>deadline</td><td>todo</td><tr>の形になるようにforeachで順番に$outputへデータを追加
     foreach ($list as $record) {
-        $friend .= "<div class = friend>";
-        $friend .= "<img class = friend_icon src ={$record['man_table.icon']}>";
+        if ($record["icon"] == NULL) {
+            $record["icon"] = "image/no_image.png";
+        }
+        $friend .= "<a href='man_edit.php?id={$record["id"]}'><div class = friend>";
+        $friend .= "<img class = friend_icon src ={$record['icon']}>";
         $friend .= "<h2>{$record['name']}</h2>";
-        $friend .= "<td>{$record['age']}</td>";
-        $friend .= "</div>";
+        $friend .= "<h3>{$record['age']}</h3>";
+        $friend .= "</div></a>";
         $friend .= "<hr>";
     }
+    // var_dump($friend);
+    // exit();
 }
 
 ?>
@@ -128,7 +132,7 @@ if ($status == false) {
                 <ul>
                     <li><a href="home.php">ホーム</a></li>
                     <li><a href="search.php">検索</a></li>
-                    <li><a href="login.php">ログアウト</a></li>
+                    <li><a href="logout.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>
